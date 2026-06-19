@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-teal: #028090;
+  --color-teal-light: #45C4BB;
+  --color-coral: #F96167;
+  --color-violet: #6655A0;
+  --color-navy: #1E2761;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-gray-900 antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold leading-tight;
+  }
+}
+
+@layer components {
+  .prose-artgon h2 {
+    @apply text-2xl font-bold text-brand-navy mt-8 mb-4;
+  }
+
+  .prose-artgon h3 {
+    @apply text-xl font-semibold text-brand-navy mt-6 mb-3;
+  }
+
+  .prose-artgon p {
+    @apply text-gray-700 leading-relaxed mb-4;
+  }
+
+  .prose-artgon ul {
+    @apply list-disc pl-6 space-y-2 text-gray-700 mb-4;
+  }
+
+  .prose-artgon a {
+    @apply text-brand-teal underline hover:text-teal-700;
+  }
+}

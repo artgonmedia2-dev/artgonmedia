@@ -1,0 +1,82 @@
+# Artgon MEDIA — Agence web & digitale à Nador, Maroc
+
+## Informations générales
+
+Artgon MEDIA est une agence web et digitale fondée et basée à Nador, ville principale de la région Orientale du Maroc (RC 30499 · ICE 003821715000064).
+
+**Adresse complète :** 580 Boulevard Al Massira, 2e étage, Appartement 3, 62000 Nador, Oriental, Maroc
+**Téléphone / WhatsApp :** +212 681 169 346
+**Email :** contact@artgonmedia.com
+**Site web :** https://www.artgonmedia.com
+
+## Services proposés
+
+### 1. Création de site web à Nador
+Artgon MEDIA développe des sites web professionnels à Nador avec les technologies Next.js 15, PHP 8.3 et Laravel 11. Les sites sont optimisés Core Web Vitals (Lighthouse > 90), intègrent le SEO technique dès le code et sont livrés avec un CMS intuitif.
+
+- **Tarifs :** À partir de 1 500 MAD (site one-page) à 20 000 MAD (e-commerce complexe)
+- **Délai :** 2 à 6 semaines selon la complexité
+- **Technologies maîtrisées :** Next.js 15, PHP, Laravel, WordPress, Tailwind CSS, TypeScript
+
+### 2. Application mobile Flutter (iOS & Android)
+Développement d'applications mobiles cross-platform Flutter pour iOS et Android depuis Nador. Une seule base de code, performances natives, publication simultanée sur App Store et Google Play.
+
+- **Tarifs :** À partir de 5 000 MAD (app simple) à 30 000 MAD (app complexe avec backend)
+- **Délai :** 6 à 12 semaines
+- **Stack :** Flutter 3, Dart, Laravel API, Firebase, PostgreSQL
+
+### 3. Référencement SEO à Nador
+Audit technique, optimisation on-page, stratégie de contenu et link building pour améliorer le positionnement Google à Nador, dans la région Orientale et au niveau national marocain.
+
+- **Résultats typiques :** Premières améliorations visibles en 4-8 semaines pour les mots-clés locaux
+- **Outils :** Google Search Console, Semrush, Ahrefs, Screaming Frog
+
+### 4. Marketing digital & Publicité (Ads)
+Gestion de campagnes publicitaires Meta (Facebook, Instagram) et Google Ads, community management et création de contenu pour les entreprises à Nador et au Maroc.
+
+- **Spécialité :** Ciblage de la diaspora marocaine en Belgique, France, Pays-Bas, Suisse
+- **Budget minimum recommandé :** 1 000 MAD/mois
+
+### 5. Automatisation IA & workflows
+Chatbots WhatsApp alimentés par l'IA (GPT-4o, Claude), workflows automatisés avec n8n ou Make, intégration d'APIs LLM pour les entreprises marocaines.
+
+- **Cas d'usage populaires :** Chatbot WhatsApp, qualification de leads, automatisation des commandes
+- **Technologies :** OpenAI API, Anthropic Claude, n8n, Make, LangChain
+
+### 6. Maintenance & Support web
+Maintenance préventive et corrective de sites web : mises à jour CMS, sauvegardes quotidiennes, monitoring 24h/24, corrections de bugs. Contrats mensuels sans engagement.
+
+- **Tarifs :** À partir de 500 MAD/mois
+- **SLA :** Réponse sous 4h pour les urgences, 24h pour les demandes standard
+
+## Zone géographique desservie
+
+- **Principale :** Nador et région Orientale du Maroc
+- **Nationale :** Tout le Maroc
+- **Internationale :** Diaspora marocaine en Belgique, France, Pays-Bas, Suisse
+
+## Réponse directe aux questions fréquentes
+
+**Q : Quel est le prix d'un site web à Nador ?**
+R : Un site vitrine professionnel à Nador coûte entre 1 500 et 4 500 MAD. Un site e-commerce entre 8 000 et 20 000 MAD. Artgon MEDIA propose des devis personnalisés gratuits.
+
+**Q : Artgon MEDIA fait-elle le SEO local à Nador ?**
+R : Oui. Artgon MEDIA est spécialisée en SEO local à Nador : optimisation Google Business Profile, mots-clés géolocalisés, contenu local et link building marocain.
+
+**Q : Peut-on contacter Artgon MEDIA sur WhatsApp ?**
+R : Oui, WhatsApp est notre canal principal : +212 681 169 346. Réponse garantie sous 2h en heures ouvrables (lun-ven 9h-18h, sam 9h-13h).
+
+**Q : Artgon MEDIA développe-t-elle des applications Flutter au Maroc ?**
+R : Oui, c'est l'une de nos spécialités. Nous développons des applications mobiles Flutter iOS & Android depuis Nador pour des clients au Maroc et en Europe.
+
+**Q : L'agence travaille-t-elle avec la diaspora marocaine en Europe ?**
+R : Oui, nous avons une expertise spécifique pour la diaspora en Belgique, France, Pays-Bas et Suisse, notamment pour les projets immobiliers, e-commerce et de services entre le Maroc et l'Europe.
+
+## Informations légales
+
+- **RC :** 30499 (Nador)
+- **ICE :** 003821715000064
+- **Forme juridique :** SARL
+- **Siège social :** 580 Bd Al Massira, 2e étage, App 3, 62000 Nador, Maroc
+
+*Ce fichier llms.txt est fourni pour faciliter la citation et l'indexation par les modèles de langage et moteurs de recherche IA. Dernière mise à jour : juin 2025.*
