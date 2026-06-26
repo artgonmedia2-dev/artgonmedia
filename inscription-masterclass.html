@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription Masterclass - IA & Marketing Digital | Artgon Media</title>
+    <meta name="description" content="Inscrivez-vous à la masterclass sur l'intégration de l'Intelligence Artificielle dans le Marketing Digital. Organisée par Artgon Media au CMC Nador.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons (for modern lightweight icons) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        :root {
+            --primary: #55b6b8;
+            --primary-dark: #3a8a8c;
+            --primary-glow: rgba(85, 182, 184, 0.4);
+            --bg-dark: #0a0f18;
+            --bg-panel: rgba(18, 26, 43, 0.65);
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            --border: rgba(85, 182, 184, 0.2);
+            --input-bg: rgba(10, 15, 24, 0.5);
+            --error: #ef4444;
+            --success: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(85, 182, 184, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(67, 56, 202, 0.15) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* Ambient animated background grid */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1280px;
+            min-height: 800px;
+            background: var(--bg-panel);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+        }
+
+        /* --- LEFT SIDE: INFO PANEL --- */
+        .info-panel {
+            flex: 1.2;
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, rgba(85, 182, 184, 0.05) 0%, transparent 100%);
+            border-right: 1px solid var(--border);
+        }
+
+        .partners {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .partners p {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .partner-logos {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .partner-logos img {
+            height: 40px;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(85, 182, 184, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: 1px solid rgba(85, 182, 184, 0.3);
+            margin-bottom: 1.5rem;
+            width: fit-content;
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            background: linear-gradient(to right, #ffffff, #a5d8d9);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .detail-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            background: rgba(85, 182, 184, 0.1);
+            padding: 0.75rem;
+            border-radius: 12px;
+        }
+
+        .detail-item h4 {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+        }
+
+        .detail-item p {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .objectives {
+            margin-top: auto;
+        }
+
+        .objectives h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .objectives ul {
+            list-style: none;
+        }
+
+        .objectives li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .objectives li i {
+            color: var(--primary);
+            margin-top: 0.25rem;
+        }
+
+        /* --- RIGHT SIDE: FORM PANEL --- */
+        .form-panel {
+            flex: 1;
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .form-header h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: var(--text-muted);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #cbd5e1;
+            transition: color 0.3s ease;
+        }
+
+        input, select {
+            width: 100%;
+            background: var(--input-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary);
+            background: rgba(10, 15, 24, 0.8);
+            box-shadow: 0 0 0 4px rgba(85, 182, 184, 0.1);
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        select option {
+            background-color: var(--bg-dark);
+            color: white;
+        }
+
+        .icon-input {
+            position: relative;
+        }
+
+        .icon-input i {
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 1.25rem;
+            transition: color 0.3s ease;
+        }
+
+        .icon-input input {
+            padding-left: 3.5rem;
+        }
+
+        .icon-input input:focus + i,
+        .icon-input input:not(:placeholder-shown) + i {
+            color: var(--primary);
+        }
+
+        button.submit-btn {
+            width: 100%;
+            background: var(--primary);
+            color: var(--bg-dark);
+            border: none;
+            padding: 1.25rem;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px var(--primary-glow);
+        }
+
+        button.submit-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px var(--primary-glow);
+        }
+
+        button.submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Custom decorative elements */
+        .floating-element {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            filter: blur(40px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+            }
+            .info-panel {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                padding: 3rem 2rem;
+            }
+            .form-panel {
+                padding: 3rem 2rem;
+            }
+            .title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem;
+            }
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            .title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    
+    <div class="container">
+        <!-- INFO PANEL -->
+        <div class="info-panel">
+            <div class="floating-element"></div>
+            
+            <div class="partners" style="position: relative; z-index: 1;">
+                <div>
+                    <p>Organisé par</p>
+                    <h3 style="color: white; font-weight: 800; font-size: 1.5rem; letter-spacing: -1px;">
+                        artgon <span style="color: var(--primary);">media</span>
+                    </h3>
+                </div>
+                <!-- Line separator -->
+                <div style="width: 1px; height: 40px; background: rgba(255,255,255,0.2);"></div>
+                <div>
+                    <p>En partenariat avec</p>
+                    <div style="display: flex; gap: 10px; font-weight: 700; color: white;">
+                        CMC & OFPPT
+                    </div>
+                </div>
+            </div>
+
+            <div class="badge" style="position: relative; z-index: 1;">
+                <i class="ph ph-sparkle"></i>
+                Masterclass Exclusive
+            </div>
+
+            <h1 class="title" style="position: relative; z-index: 1;">
+                L'intégration de l'Intelligence Artificielle <br>dans le Marketing Digital
+            </h1>
+
+            <div class="details-grid" style="position: relative; z-index: 1;">
+                <div class="detail-item">
+                    <i class="ph ph-calendar-blank"></i>
+                    <div>
+                        <h4>Date</h4>
+                        <p>22 Avril 2026</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <i class="ph ph-clock"></i>
+                    <div>
+                        <h4>Heure</h4>
+                        <p>11h00 - 13h00</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <i class="ph ph-map-pin"></i>
+                    <div>
+                        <h4>Lieu</h4>
+                        <p>CMC Nador</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <i class="ph ph-users"></i>
+                    <div>
+                        <h4>Public</h4>
+                        <p>Étudiants & Professionnels</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="objectives" style="position: relative; z-index: 1;">
+                <h3>Au programme :</h3>
+                <ul>
+                    <li>
+                        <i class="ph ph-check-circle"></i>
+                        <span>Comprendre les fondamentaux de l'IA appliquée au marketing digital</span>
+                    </li>
+                    <li>
+                        <i class="ph ph-check-circle"></i>
+                        <span>Découvrir des cas pratiques et outils concrets utilisés en agence</span>
+                    </li>
+                    <li>
+                        <i class="ph ph-check-circle"></i>
+                        <span>Explorer les opportunités professionnelles liées à l'IA</span>
+                    </li>
+                    <li>
+                        <i class="ph ph-check-circle"></i>
+                        <span>Sensibiliser aux enjeux éthiques et stratégiques de son utilisation</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- FORM PANEL -->
+        <div class="form-panel">
+            <div class="form-header">
+                <h2>Réservez votre place</h2>
+                <p>Nombre de places limité. Inscrivez-vous dès aujourd'hui.</p>
+            </div>
+
+            <form id="registrationForm" action="process-masterclass.php" method="POST">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nom">Nom</label>
+                        <div class="icon-input">
+                            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+                            <i class="ph ph-user"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="prenom">Prénom</label>
+                        <div class="icon-input">
+                            <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+                            <i class="ph ph-user"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Adresse Email</label>
+                    <div class="icon-input">
+                        <input type="email" id="email" name="email" placeholder="exemple@email.com" required>
+                        <i class="ph ph-envelope-simple"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Téléphone (WhatsApp)</label>
+                    <div class="icon-input">
+                        <input type="tel" id="phone" name="phone" placeholder="+212 6 XX XX XX XX" required>
+                        <i class="ph ph-whatsapp-logo"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="statut">Statut</label>
+                    <div class="icon-input">
+                        <select id="statut" name="statut" required onchange="toggleEstablishmentField()">
+                            <option value="" disabled selected>Sélectionnez votre statut</option>
+                            <option value="etudiant">Étudiant(e)</option>
+                            <option value="professionnel">Professionnel(le) / Agence</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                        <i class="ph ph-graduation-cap"></i>
+                    </div>
+                </div>
+
+                <div class="form-group" id="etablissement-group">
+                    <label for="etablissement">Établissement / École</label>
+                    <div class="icon-input">
+                        <input type="text" id="etablissement" name="etablissement" placeholder="Nom de votre école ou institut">
+                        <i class="ph ph-buildings"></i>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    Confirmer mon inscription
+                    <i class="ph ph-arrow-right"></i>
+                </button>
+                
+                <p style="text-align: center; margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-muted);">
+                    En vous inscrivant, vous acceptez de recevoir des communications concernant cet événement.
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Simple script to toggle the establishment field based on status
+        function toggleEstablishmentField() {
+            const statut = document.getElementById('statut').value;
+            const etablissementGroup = document.getElementById('etablissement-group');
+            const etablissementInput = document.getElementById('etablissement');
+            
+            if (statut === 'etudiant') {
+                etablissementGroup.style.display = 'block';
+                etablissementInput.setAttribute('required', 'true');
+                // Quick animation
+                etablissementGroup.style.opacity = '0';
+                setTimeout(() => {
+                    etablissementGroup.style.transition = 'opacity 0.3s ease';
+                    etablissementGroup.style.opacity = '1';
+                }, 10);
+            } else {
+                etablissementGroup.style.display = 'none';
+                etablissementInput.removeAttribute('required');
+            }
+        }
+    </script>
+</body>
+</html>
