@@ -55,7 +55,7 @@ export default function ProjectCaseStudy({ slug }: { slug: string }) {
           <div className="case-study-contact rounded-2xl bg-brand-navy p-6 text-center text-white sm:p-8">
             <h2 className="text-2xl font-bold">Vous avez un projet similaire ?</h2>
             <p className="mt-3 text-white/80">Discutons de votre projet sur WhatsApp.</p>
-            <a href={WHATSAPP_CTA(`Bonjour, j’ai vu la réalisation ${website.title} et je souhaite discuter d’un projet similaire.`)} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex min-h-12 items-center rounded-xl bg-white px-6 py-3 font-bold text-brand-teal hover:bg-sand focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+            <a href={WHATSAPP_CTA(`Bonjour, j’ai vu la réalisation ${website.title} et je souhaite discuter d’un projet similaire.`)} target="_blank" rel="noopener noreferrer" className="whatsapp-action mt-5 inline-flex min-h-12 items-center rounded-xl bg-white px-6 py-3 font-bold text-brand-teal hover:bg-sand focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
               Demander un devis gratuit
             </a>
           </div>

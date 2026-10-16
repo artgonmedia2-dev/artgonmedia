@@ -30,15 +30,15 @@ export default function Header() {
   }, [pathname])
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/95 backdrop-blur-sm">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center" aria-label="Artgon MEDIA — Accueil">
+    <header className="site-header sticky top-0 z-50 border-b border-gray-100 bg-white/95 backdrop-blur-sm">
+      <div className="header-inner mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
+        <Link href="/" className="header-brand flex shrink-0 items-center" aria-label="Artgon MEDIA — Accueil">
           <Image
-            src="/logo-artgon.jpg"
+            src="/logo-artgon-mark.webp"
             alt="Artgon MEDIA — Agence web Nador"
-            width={140}
-            height={56}
-            className="h-12 w-auto object-contain"
+            width={114}
+            height={64}
+            className="site-logo h-16 w-auto object-contain"
             priority
           />
         </Link>
@@ -65,7 +65,7 @@ export default function Header() {
           href={WHATSAPP_CTA()}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden rounded-lg bg-brand-teal px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-teal-700 lg:inline-flex lg:items-center lg:gap-2"
+          className="whatsapp-action hidden rounded-lg bg-brand-teal px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-teal-700 lg:inline-flex lg:items-center lg:gap-2"
           aria-label="Devis gratuit sur WhatsApp"
         >
           <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -119,7 +119,7 @@ export default function Header() {
               href={WHATSAPP_CTA()}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 inline-flex min-h-12 items-center justify-center rounded-lg bg-brand-teal px-4 py-3 text-center text-base font-semibold text-white"
+              className="whatsapp-action mt-2 inline-flex min-h-12 items-center justify-center rounded-lg bg-brand-teal px-4 py-3 text-center text-base font-semibold text-white"
             >
               Devis gratuit sur WhatsApp
             </a>

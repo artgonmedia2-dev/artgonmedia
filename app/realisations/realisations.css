@@ -45,7 +45,7 @@
 
 .realisations-ui .portfolio-hero h1 {
   font-family: var(--font-syne), var(--font-inter), system-ui, sans-serif;
-  font-size: clamp(2rem, 3vw, 2.75rem);
+  font-size: var(--h1-compact);
   line-height: 1.12;
   letter-spacing: -0.04em;
 }

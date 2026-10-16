@@ -7,23 +7,23 @@ const currentYear = new Date().getFullYear()
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-navy text-gray-300">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+    <footer className="site-footer bg-brand-navy text-gray-300">
+      <div className="footer-content mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           <div>
-            <Link href="/" aria-label="Artgon MEDIA — Accueil">
+            <Link href="/" className="inline-flex rounded-lg bg-white p-2" aria-label="Artgon MEDIA — Accueil">
               <Image
-                src="/logo-artgon.jpg"
+                src="/logo-artgon-mark.webp"
                 alt="Artgon MEDIA — Agence web Nador"
-                width={140}
-                height={56}
-                className="h-12 w-auto object-contain brightness-0 invert"
+                width={85}
+                height={48}
+                className="h-12 w-auto object-contain"
               />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-gray-400">
               Agence web & digitale à Nador, Maroc. Création de sites web, applications mobiles, SEO et marketing digital.
             </p>
-            <div className="mt-6 flex gap-4">
+            <div className="mt-4 flex gap-3">
               <a
                 href={SOCIAL_LINKS.facebook}
                 target="_blank"
@@ -121,7 +121,7 @@ export default function Footer() {
                 href={WHATSAPP_CTA()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg bg-green-600 px-4 py-2 text-white transition-colors hover:bg-green-700"
+                className="whatsapp-action inline-flex items-center gap-2 rounded-lg bg-green-600 px-4 py-2 text-white transition-colors hover:bg-green-700"
               >
                 <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
@@ -133,7 +133,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-8">
+        <div className="mt-6 border-t border-white/10 pt-4">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <p className="text-xs text-gray-500">
               © {currentYear} {NAP.name} — {NAP.rc} · {NAP.ice}

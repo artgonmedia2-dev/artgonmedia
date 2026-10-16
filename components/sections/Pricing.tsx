@@ -75,7 +75,7 @@ export default function Pricing() {
           {PLANS.map((plan) => (
             <div
               key={plan.name}
-              className={`relative flex flex-col rounded-2xl border-2 p-8 shadow-sm ${
+              className={`pricing-card relative flex flex-col rounded-2xl border-2 p-8 shadow-sm ${
                 plan.highlight ? 'border-brand-navy bg-brand-navy text-white' : `bg-white ${plan.color}`
               }`}
             >
@@ -86,9 +86,9 @@ export default function Pricing() {
                   </span>
                 </div>
               )}
-              <div>
+              <div className="pricing-plan-header">
                 <h3 className={`text-xl font-bold ${plan.highlight ? 'text-white' : 'text-brand-navy'}`}>{plan.name}</h3>
-                <div className="mt-4 flex items-baseline gap-1">
+                <div className="pricing-price mt-4 flex items-baseline gap-1">
                   <span className={`text-4xl font-extrabold ${plan.highlight ? 'text-white' : 'text-brand-navy'}`}>{plan.price}</span>
                   <span className={`text-lg ${plan.highlight ? 'text-white/70' : 'text-gray-500'}`}>{plan.currency}</span>
                   <span className={`text-sm ${plan.highlight ? 'text-white/50' : 'text-gray-400'}`}>/{plan.period}</span>
@@ -96,7 +96,7 @@ export default function Pricing() {
                 <p className={`mt-3 text-sm ${plan.highlight ? 'text-white/75' : 'text-gray-600'}`}>{plan.description}</p>
               </div>
 
-              <ul className="mt-8 flex-1 space-y-3">
+              <ul className="pricing-features mt-8 flex-1 space-y-3">
                 {plan.features.map((feature) => (
                   <li key={feature} className={`flex items-start gap-3 text-sm ${plan.highlight ? 'text-white/90' : 'text-gray-700'}`}>
                     <svg className={`mt-0.5 h-5 w-5 shrink-0 ${plan.highlight ? 'text-brand-teal-light' : 'text-brand-teal'}`} fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">
@@ -111,7 +111,7 @@ export default function Pricing() {
                 href={WHATSAPP_CTA(`Bonjour, je suis intéressé par le plan ${plan.name} à ${plan.price} MAD.`)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`mt-8 block min-h-12 w-full rounded-xl py-3 text-center font-semibold transition-colors ${
+                className={`pricing-action mt-8 block min-h-12 w-full rounded-xl py-3 text-center font-semibold transition-colors ${
                   plan.highlight
                     ? 'bg-white text-brand-navy hover:bg-sand'
                     : 'border-2 border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white'

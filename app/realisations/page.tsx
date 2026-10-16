@@ -55,7 +55,7 @@ export default function RealisationsPage() {
     <div className="realisations-ui">
       <JsonLd data={breadcrumbSchema(breadcrumbs)} />
 
-      <section className="portfolio-hero relative isolate bg-brand-navy text-white">
+      <section className="site-page-hero portfolio-hero relative isolate bg-brand-navy text-white" data-page-hero="">
         <div className="portfolio-hero-visual" aria-hidden="true">
           <Image src="/hero-artgon-projects.webp" alt="" fill priority sizes="(min-width: 1024px) 72vw, 100vw" className="object-cover" />
         </div>

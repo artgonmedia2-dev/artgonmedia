@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import '../article.css'
 import { articleSchema, breadcrumbSchema } from '@/lib/schema'
 import JsonLd from '@/components/seo/JsonLd'
 import { SITE_URL, WHATSAPP_CTA } from '@/lib/constants'
@@ -179,6 +182,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const { slug } = await params
   const article = ARTICLES[slug]
   if (!article) notFound()
+  const sections = article.content.split('\n').filter((line) => line.startsWith('## ')).map((line, index) => ({
+    title: line.slice(3), id: `section-${index + 1}`,
+  }))
+  const readingMinutes = Math.max(1, Math.ceil(article.content.trim().split(/\s+/).length / 200))
+  const related = Object.entries(ARTICLES).filter(([key]) => key !== slug).slice(0, 2)
 
   const breadcrumbs = [
     { name: 'Accueil', url: SITE_URL },
@@ -187,7 +195,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   ]
 
   return (
-    <>
+    <div className="article-ui">
       <JsonLd
         data={[
           breadcrumbSchema(breadcrumbs),
@@ -200,59 +208,157 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         ]}
       />
 
-      <section className="py-24 text-white" style={{ background: `linear-gradient(135deg, #1E2761 0%, ${article.color} 100%)` }}>
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <nav aria-label="Fil d'Ariane" className="mb-6">
-            <ol className="flex flex-wrap items-center gap-2 text-sm text-white/60">
-              <li><a href="/" className="hover:text-white">Accueil</a></li>
-              <li aria-hidden="true">/</li>
-              <li><a href="/blog" className="hover:text-white">Blog</a></li>
-              <li aria-hidden="true">/</li>
-              <li className="text-white">{article.category}</li>
-            </ol>
-          </nav>
-          <span className="inline-block rounded-full bg-white/15 px-3 py-1 text-sm font-medium">
-            {article.category}
-          </span>
-          <h1 className="mt-4 text-3xl font-extrabold sm:text-4xl">{article.title}</h1>
-          <div className="mt-4 flex items-center gap-4 text-sm text-white/60">
-            <time dateTime={article.date}>
-              {new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
-            </time>
-            <span>·</span>
-            <span>Artgon MEDIA</span>
+      <section className="site-page-hero article-hero relative isolate overflow-hidden bg-brand-navy text-white" data-page-hero="">
+        <div className="article-hero-visual" aria-hidden="true">
+          <Image
+            src={`/blog/${slug}.webp`}
+            alt=""
+            fill
+            priority
+            sizes="(min-width: 1024px) 72vw, 100vw"
+            className="object-cover"
+          />
+        </div>
+        <div className="article-hero-content relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="article-hero-copy">
+            <span className="article-kicker">{article.category}</span>
+            <h1>{article.title}</h1>
+            <div className="article-meta flex flex-wrap items-center gap-x-3 gap-y-1">
+              <time dateTime={article.date}>
+                {new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+              </time>
+              <span aria-hidden="true">·</span>
+              <span>Artgon MEDIA</span>
+              <span aria-hidden="true">·</span>
+              <span>{readingMinutes} min de lecture</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <article className="py-16 bg-white">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <div className="prose-artgon">
-            {article.content.split('\n').filter(Boolean).map((line, i) => {
-              if (line.startsWith('## ')) return <h2 key={i} className="mt-10 text-2xl font-bold text-brand-navy">{line.replace('## ', '')}</h2>
-              if (line.startsWith('### ')) return <h3 key={i} className="mt-6 text-xl font-semibold text-brand-navy">{line.replace('### ', '')}</h3>
-              if (line.startsWith('**') && line.endsWith('**')) return <p key={i} className="mt-3 font-semibold text-gray-800">{line.replace(/\*\*/g, '')}</p>
-              if (line.startsWith('- ')) return <li key={i} className="mt-1 text-gray-700 ml-4 list-disc">{line.replace('- ', '')}</li>
-              if (line.startsWith('| ')) return null
-              return <p key={i} className="mt-4 text-gray-700 leading-relaxed">{line}</p>
-            })}
+      <div className="article-layout">
+        <aside className="article-sidebar" aria-label="Navigation de l’article">
+          <div className="article-sidebar-inner">
+            <Link href="/blog" className="article-return">← Tous les articles</Link>
+            <p className="article-toc-label">Dans cet article</p>
+            <nav aria-label="Sommaire">
+              <ol>{sections.map((section, index) => (
+                <li key={section.id}><a href={`#${section.id}`}><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>{section.title}</a></li>
+              ))}</ol>
+            </nav>
+            <p className="article-sidebar-note">Des conseils concrets pour votre présence digitale.</p>
           </div>
+        </aside>
+      <article className="article-body" aria-label={article.title}>
+        <div className="article-column">
+          <details className="article-mobile-toc">
+            <summary>Dans cet article <span>{sections.length} sections</span></summary>
+            <nav aria-label="Sommaire mobile"><ol>{sections.map((section) => (
+              <li key={section.id}><a href={`#${section.id}`}>{section.title}</a></li>
+            ))}</ol></nav>
+          </details>
+          <p className="article-introduction">{article.description}</p>
+          <ArticleBody content={article.content} />
 
-          <div className="mt-16 rounded-2xl bg-brand-teal p-8 text-center text-white">
-            <h3 className="text-xl font-bold">Besoin d&apos;aide pour votre projet digital à Nador ?</h3>
-            <p className="mt-2 text-white/80 text-sm">Artgon MEDIA vous accompagne de A à Z.</p>
-            <a
+          <div className="article-contact">
+            <span className="article-contact-label">Passons à la pratique</span>
+            <h2>Besoin d&apos;aide pour votre projet digital à Nador ?</h2>
+            <p>Artgon MEDIA vous accompagne de A à Z.</p>
+            <a className="whatsapp-action"
               href={WHATSAPP_CTA(`Bonjour, j'ai lu votre article "${article.title}" et j'aimerais en discuter.`)}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-bold text-brand-teal hover:bg-gray-50"
             >
               Contactez-nous sur WhatsApp
             </a>
           </div>
+          <Link href="/blog" className="article-back">
+            ← Retour au blog
+          </Link>
         </div>
       </article>
-    </>
+      </div>
+      <section className="article-related" aria-labelledby="related-heading">
+        <div className="article-related-inner">
+          <div className="article-related-heading"><div><p>Pour aller plus loin</p><h2 id="related-heading">Continuez votre lecture</h2></div><Link href="/blog">Tous les articles →</Link></div>
+          <div className="article-related-grid">{related.map(([key, item]) => (
+            <Link href={`/blog/${key}`} key={key} className="article-related-card">
+              <div className="article-related-image"><Image src={`/blog/${key}.webp`} alt="" fill sizes="(max-width: 639px) 100vw, 240px" className="object-cover" /></div>
+              <div className="article-related-copy"><span>{item.category}</span><h3>{item.title}</h3><p>Lire l’article <span aria-hidden="true">↗</span></p></div>
+            </Link>
+          ))}</div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+function ArticleBody({ content }: { content: string }) {
+  const lines = content.split('\n').map((line) => line.trim()).filter(Boolean)
+  const blocks: React.ReactNode[] = []
+  let index = 0
+  let sectionIndex = 0
+
+  while (index < lines.length) {
+    const line = lines[index]
+    if (line.startsWith('- ') || /^\d+\. /.test(line)) {
+      const ordered = /^\d+\. /.test(line)
+      const items: string[] = []
+      const start = index
+      while (index < lines.length && (ordered ? /^\d+\. /.test(lines[index]) : lines[index].startsWith('- '))) {
+        items.push(lines[index].replace(ordered ? /^\d+\. / : /^- /, ''))
+        index += 1
+      }
+      const List = ordered ? 'ol' : 'ul'
+      blocks.push(
+        <List key={`list-${start}`}>
+          {items.map((item) => (
+            <li key={item}>{inlineText(item)}</li>
+          ))}
+        </List>,
+      )
+      continue
+    }
+    if (line.startsWith('| ')) {
+      const start = index
+      const rows: string[][] = []
+      while (index < lines.length && lines[index].startsWith('|')) {
+        const cells = lines[index].replace(/^\||\|$/g, '').split('|').map((cell) => cell.trim())
+        if (!cells.every((cell) => /^:?-{3,}:?$/.test(cell))) rows.push(cells)
+        index += 1
+      }
+      if (rows.length) blocks.push(
+        <div className="article-table-scroll" role="region" aria-label="Tableau comparatif" tabIndex={0} key={`table-${start}`}>
+          <table><thead><tr>{rows[0].map((cell, i) => <th scope="col" key={i}>{inlineText(cell)}</th>)}</tr></thead>
+            <tbody>{rows.slice(1).map((row, i) => <tr key={i}>{row.map((cell, j) => <td key={j}>{inlineText(cell)}</td>)}</tr>)}</tbody>
+          </table>
+        </div>,
+      )
+      continue
+    }
+    if (line.startsWith('## ')) {
+      sectionIndex += 1
+      blocks.push(<h2 id={`section-${sectionIndex}`} key={index}>{line.slice(3)}</h2>)
+    } else if (line.startsWith('### ')) {
+      blocks.push(<h3 key={index}>{line.slice(4)}</h3>)
+    } else if (line.startsWith('**') && line.endsWith('**')) {
+      blocks.push(
+        <p key={index} className="article-label">
+          {line.replace(/\*\*/g, '')}
+        </p>,
+      )
+    } else {
+      blocks.push(<p key={index}>{inlineText(line)}</p>)
+    }
+    index += 1
+  }
+
+  return <div className="prose-artgon">{blocks}</div>
+}
+
+function inlineText(text: string) {
+  return text.split(/(\*\*[^*]+\*\*)/g).map((part, index) =>
+    part.startsWith('**') && part.endsWith('**') ? <strong key={index}>{part.slice(2, -2)}</strong> : part,
   )
 }
 

@@ -1,0 +1,186 @@
+/* Contact page only. The homepage contact block is unchanged. */
+.contact-ui :is(a, button):focus-visible {
+  outline: 3px solid var(--color-teal-light);
+  outline-offset: 4px;
+}
+
+.contact-ui :is(h1, h2) {
+  text-wrap: balance;
+}
+
+.contact-ui p {
+  text-wrap: pretty;
+}
+
+.contact-ui .contact-hero {
+  display: flex;
+  min-height: 21rem;
+  align-items: center;
+  overflow: hidden;
+  padding-block: 2.5rem;
+}
+
+.contact-ui .contact-hero-visual {
+  position: absolute;
+  inset: 0 0 0 auto;
+  z-index: -1;
+  width: 72%;
+  pointer-events: none;
+}
+
+.contact-ui .contact-hero-visual img {
+  object-position: right center;
+}
+
+.contact-ui .contact-hero-visual::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  background: linear-gradient(90deg, var(--color-navy), rgb(30 39 97 / 85%) 15%, rgb(30 39 97 / 20%) 45%, transparent 75%);
+}
+
+.contact-ui .contact-hero-copy {
+  max-width: 40rem;
+}
+
+.contact-ui .contact-hero h1 {
+  font-family: var(--font-syne), var(--font-inter), system-ui, sans-serif;
+  font-size: var(--h1-compact);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+
+.contact-ui .contact-hero-copy p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgb(255 255 255 / 82%);
+}
+
+.contact-ui .contact-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.contact-ui .contact-actions a {
+  display: inline-flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact-ui .contact-phone {
+  background: var(--color-teal);
+  color: white;
+}
+
+.contact-ui .contact-phone:hover {
+  background: #026b78;
+}
+
+.contact-ui .contact-email {
+  border: 2px solid rgb(255 255 255 / 75%);
+  color: white;
+}
+
+.contact-ui .contact-email:hover {
+  background: rgb(255 255 255 / 10%);
+}
+
+.contact-ui #contact {
+  background: #f3f0e8;
+  padding-block: 3.5rem;
+}
+
+.contact-ui #contact .grid > div:first-child {
+  display: none;
+}
+
+.contact-ui #contact .grid {
+  display: block;
+  max-width: 40rem;
+  margin-inline: auto;
+}
+
+.contact-ui #contact form {
+  border: 1px solid rgb(30 39 97 / 12%);
+  border-radius: 1rem;
+  background: white;
+  box-shadow: 0 4px 16px rgb(30 39 97 / 4%);
+}
+
+.contact-ui .contact-map {
+  background: white;
+  padding-block: 3.5rem;
+}
+
+.contact-ui .contact-map-frame {
+  overflow: hidden;
+  border: 1px solid rgb(30 39 97 / 12%);
+  border-radius: 1rem;
+}
+
+.contact-ui .contact-map p {
+  margin-top: 1rem;
+  text-align: center;
+  color: rgb(75 85 99);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+@media (min-width: 640px) {
+  .contact-ui .contact-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-ui #contact,
+  .contact-ui .contact-map {
+    padding-block: 4rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .contact-ui .contact-hero {
+    display: block;
+    min-height: 0;
+    padding-block: 2.5rem 0;
+    padding-bottom: clamp(15rem, 50vw, 24rem);
+  }
+
+  .contact-ui .contact-hero-content {
+    padding-bottom: 1.5rem;
+  }
+
+  .contact-ui .contact-hero-visual {
+    top: auto;
+    width: 100%;
+    height: clamp(17rem, 55vw, 26rem);
+  }
+
+  .contact-ui .contact-hero-visual img {
+    object-position: right bottom;
+  }
+
+  .contact-ui .contact-hero-visual::after {
+    background: linear-gradient(180deg, var(--color-navy), rgb(30 39 97 / 15%) 40%, transparent 75%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-ui *,
+  .contact-ui *::before,
+  .contact-ui *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

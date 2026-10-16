@@ -224,7 +224,7 @@ ${form.description}`
                 <button
                   onClick={handleSubmit}
                   disabled={!form.name || !form.phone}
-                  className="flex-1 rounded-xl bg-brand-coral py-3 font-bold text-white disabled:opacity-50 hover:bg-red-600 transition-colors"
+                  className="whatsapp-action flex-1 rounded-xl bg-brand-coral py-3 font-bold text-white disabled:opacity-50 hover:bg-red-600 transition-colors"
                 >
                   Envoyer sur WhatsApp →
                 </button>

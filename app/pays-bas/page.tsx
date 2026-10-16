@@ -32,7 +32,7 @@ export default function PaysBasPage() {
     <>
       <JsonLd data={[breadcrumbSchema(breadcrumbs), faqSchema(FAQ)]} />
 
-      <section className="bg-gradient-to-br from-brand-navy to-brand-teal py-24 text-white">
+      <section className="site-page-hero bg-gradient-to-br from-brand-navy to-brand-teal py-24 text-white" data-page-hero="">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <div className="mb-4 text-4xl" aria-hidden="true">🇳🇱</div>
@@ -46,7 +46,7 @@ export default function PaysBasPage() {
               href={WHATSAPP_CTA('Bonjour, je suis basé(e) aux Pays-Bas et j\'ai un projet digital. Pouvez-vous m\'aider ?')}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-brand-coral px-8 py-4 font-bold text-white hover:bg-red-600"
+              className="whatsapp-action mt-8 inline-flex items-center gap-2 rounded-xl bg-brand-coral px-8 py-4 font-bold text-white hover:bg-red-600"
             >
               Parler de mon projet sur WhatsApp
             </a>

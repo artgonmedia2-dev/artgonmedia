@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
+import './tarifs.css'
 import { generateMetadata } from '@/lib/seo'
 import { breadcrumbSchema, faqSchema } from '@/lib/schema'
 import JsonLd from '@/components/seo/JsonLd'
 import Pricing from '@/components/sections/Pricing'
-import { SITE_URL, WHATSAPP_CTA } from '@/lib/constants'
+import { SITE_URL } from '@/lib/constants'
 
 export const metadata: Metadata = generateMetadata({
   title: 'Tarifs création site web Nador — Artgon MEDIA | Prix transparents',
@@ -38,21 +40,24 @@ export default function TarifsPage() {
   ]
 
   return (
-    <>
+    <div className="tarifs-ui">
       <JsonLd data={[breadcrumbSchema(breadcrumbs), faqSchema(TARIF_FAQ)]} />
 
-      <section className="bg-gradient-to-br from-brand-navy to-brand-teal py-24 text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <nav aria-label="Fil d'Ariane" className="mb-6">
-            <ol className="flex items-center gap-2 text-sm text-white/60">
-              <li><a href="/" className="hover:text-white">Accueil</a></li>
-              <li aria-hidden="true">/</li>
-              <li className="text-white">Tarifs</li>
-            </ol>
-          </nav>
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-extrabold sm:text-5xl">Tarifs transparents à Nador</h1>
-            <p className="mt-6 text-lg text-white/80">
+      <section className="site-page-hero tarifs-hero relative isolate overflow-hidden bg-brand-navy text-white" data-page-hero="">
+        <div className="tarifs-hero-visual" aria-hidden="true">
+          <Image
+            src="/hero-digital-services.webp"
+            alt=""
+            fill
+            priority
+            sizes="(min-width: 1024px) 72vw, 100vw"
+            className="object-cover"
+          />
+        </div>
+        <div className="tarifs-hero-content relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="tarifs-hero-copy">
+            <h1 className="font-bold text-white">Tarifs transparents à Nador</h1>
+            <p className="mt-6 max-w-2xl font-sans text-lg leading-relaxed text-white/80">
               Des prix clairs, sans surprise. Chaque forfait est détaillé et chaque dépassement de scope est soumis à votre accord avant facturation.
             </p>
           </div>
@@ -61,12 +66,12 @@ export default function TarifsPage() {
 
       <Pricing />
 
-      <section className="py-16 bg-gray-50">
+      <section className="tarifs-faq">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-brand-navy text-center">Questions sur nos tarifs</h2>
-          <div className="mt-8 space-y-6">
-            {TARIF_FAQ.map((item, i) => (
-              <div key={i} className="rounded-xl border border-gray-200 bg-white p-6">
+          <h2 className="text-center text-2xl font-bold text-brand-navy">Questions sur nos tarifs</h2>
+          <div className="tarifs-faq-list mt-8">
+            {TARIF_FAQ.map((item) => (
+              <div key={item.question} className="tarifs-faq-item">
                 <h3 className="font-bold text-brand-navy">{item.question}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-gray-600">{item.answer}</p>
               </div>
@@ -74,6 +79,6 @@ export default function TarifsPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   )
 }

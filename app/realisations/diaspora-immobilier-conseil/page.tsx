@@ -110,7 +110,7 @@ export default function DiasporaImmobilierPage() {
               href={WHATSAPP_CTA('Bonjour, j\'ai vu la réalisation Diaspora Immobilier et j\'ai un projet d\'application mobile Flutter.')}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-bold text-brand-violet hover:bg-gray-50"
+              className="whatsapp-action mt-4 inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-bold text-brand-violet hover:bg-gray-50"
             >
               Demander un devis gratuit
             </a>

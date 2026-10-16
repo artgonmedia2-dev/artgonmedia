@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Syne } from 'next/font/google'
 import './globals.css'
+import './site-chrome.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import WhatsAppButton from '@/components/layout/WhatsAppButton'

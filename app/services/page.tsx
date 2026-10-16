@@ -44,18 +44,11 @@ export default function ServicesPage() {
     <div className="services-ui">
       <JsonLd data={[breadcrumbSchema(breadcrumbs), ...schemas]} />
 
-      <section className="services-hero relative isolate overflow-hidden bg-brand-navy text-white">
+      <section className="site-page-hero services-hero relative isolate overflow-hidden bg-brand-navy text-white" data-page-hero="">
         <div className="services-hero-visual" aria-hidden="true">
           <Image src="/hero-digital-services.webp" alt="" fill priority sizes="100vw" className="object-cover" />
         </div>
         <div className="services-hero-content relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <nav aria-label="Fil d'Ariane" className="mb-6">
-            <ol className="flex items-center gap-2 text-sm text-white/60">
-              <li><a href="/" className="hover:text-white">Accueil</a></li>
-              <li aria-hidden="true">/</li>
-              <li className="text-white">Services</li>
-            </ol>
-          </nav>
           <div className="services-hero-copy max-w-2xl">
             <h1 className="font-sans text-4xl font-bold sm:text-5xl">
               Services web & digitaux à Nador
@@ -116,7 +109,7 @@ export default function ServicesPage() {
               href={WHATSAPP_CTA('Bonjour, j\'ai un besoin spécifique non listé sur votre site. Pouvez-vous m\'aider ?')}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-brand-teal px-6 py-3.5 font-semibold text-white transition-colors hover:bg-brand-teal-light hover:text-brand-navy sm:px-8"
+              className="whatsapp-action relative mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-brand-teal px-6 py-3.5 font-semibold text-white transition-colors hover:bg-brand-teal-light hover:text-brand-navy sm:px-8"
             >
               Décrire mon projet sur WhatsApp
             </a>

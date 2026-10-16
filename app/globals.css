@@ -8,6 +8,16 @@
   --color-coral: #F96167;
   --color-violet: #6655A0;
   --color-navy: #1E2761;
+
+  /* Shared surface tokens for the page-level stylesheets. */
+  --border-subtle: rgb(30 39 97 / 12%);
+  --shadow-card: 0 4px 16px rgb(30 39 97 / 4%);
+  --shadow-raised: 0 16px 40px rgb(30 39 97 / 16%);
+  --radius-card: 1rem;
+  --radius-control: 0.75rem;
+  --dur: 180ms;
+  --h1-hero: clamp(2.25rem, 4.3vw, 4rem);
+  --h1-compact: clamp(2rem, 3vw, 2.75rem);
 }
 
 @layer base {

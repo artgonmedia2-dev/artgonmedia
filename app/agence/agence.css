@@ -1,0 +1,210 @@
+/* Agence page only. */
+.agence-ui :is(a, button):focus-visible {
+  outline: 3px solid var(--color-teal-light);
+  outline-offset: 4px;
+}
+
+.agence-ui :is(h1, h2, h3) {
+  text-wrap: balance;
+}
+
+.agence-ui p {
+  text-wrap: pretty;
+}
+
+.agence-ui .agence-hero {
+  display: flex;
+  min-height: 21rem;
+  align-items: center;
+  overflow: hidden;
+  padding-block: 2.5rem;
+}
+
+.agence-ui .agence-hero-visual {
+  position: absolute;
+  inset: 0 0 0 auto;
+  z-index: -1;
+  width: 72%;
+  pointer-events: none;
+}
+
+.agence-ui .agence-hero-visual img {
+  object-position: right center;
+}
+
+.agence-ui .agence-hero-visual::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  background: linear-gradient(90deg, var(--color-navy), rgb(30 39 97 / 85%) 15%, rgb(30 39 97 / 20%) 45%, transparent 75%);
+}
+
+.agence-ui .agence-hero-copy {
+  max-width: 40rem;
+}
+
+.agence-ui .agence-hero h1 {
+  font-family: var(--font-syne), var(--font-inter), system-ui, sans-serif;
+  font-size: var(--h1-compact);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+
+.agence-ui .agence-hero-copy p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgb(255 255 255 / 82%);
+}
+
+.agence-ui .agence-story {
+  background: #f3f0e8;
+  padding-block: 3.5rem;
+}
+
+.agence-ui .agence-story-copy {
+  max-width: 38rem;
+}
+
+.agence-ui .agence-story-copy p {
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.agence-ui .agence-stat {
+  border: 1px solid rgb(30 39 97 / 12%);
+  border-radius: 1rem;
+  background: white;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 4px 16px rgb(30 39 97 / 4%);
+}
+
+.agence-ui .agence-stat strong {
+  display: block;
+  font-family: var(--font-syne), var(--font-inter), system-ui, sans-serif;
+  font-size: 2.25rem;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.agence-ui .agence-stat span {
+  display: block;
+  margin-top: 0.4rem;
+  color: rgb(75 85 99);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.agence-ui .agence-values {
+  margin-top: 3.5rem;
+}
+
+.agence-ui .agence-value {
+  border: 1px solid rgb(30 39 97 / 12%);
+  border-radius: 1rem;
+  background: white;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgb(30 39 97 / 4%);
+}
+
+.agence-ui .agence-value-icon {
+  display: inline-flex;
+  height: 3rem;
+  width: 3rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background: rgb(2 128 144 / 8%);
+  color: var(--color-teal);
+}
+
+.agence-ui .agence-value p {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+}
+
+.agence-ui .agence-close {
+  margin-top: 3.5rem;
+  border-radius: 1rem;
+  background: var(--color-navy);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  color: white;
+  box-shadow: 0 12px 32px rgb(30 39 97 / 12%);
+}
+
+.agence-ui .agence-close h2 {
+  font-size: clamp(1.5rem, 2.4vw, 1.75rem);
+  line-height: 1.3;
+}
+
+.agence-ui .agence-close p {
+  margin-top: 0.75rem;
+  color: rgb(255 255 255 / 80%);
+}
+
+.agence-ui .agence-close a {
+  display: inline-flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  border-radius: 0.75rem;
+  background: white;
+  padding: 0.75rem 1.5rem;
+  color: var(--color-navy);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media (min-width: 1024px) {
+  .agence-ui .agence-hero {
+    padding-block: 2.5rem;
+  }
+
+  .agence-ui .agence-story {
+    padding-block: 4rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .agence-ui .agence-hero {
+    display: block;
+    min-height: 0;
+    padding-block: 2.5rem 0;
+    padding-bottom: clamp(15rem, 50vw, 24rem);
+  }
+
+  .agence-ui .agence-hero-content {
+    padding-bottom: 1.5rem;
+  }
+
+  .agence-ui .agence-hero-visual {
+    top: auto;
+    width: 100%;
+    height: clamp(17rem, 55vw, 26rem);
+  }
+
+  .agence-ui .agence-hero-visual img {
+    object-position: right bottom;
+  }
+
+  .agence-ui .agence-hero-visual::after {
+    background: linear-gradient(180deg, var(--color-navy), rgb(30 39 97 / 15%) 40%, transparent 75%);
+  }
+}
+
+@media (max-width: 639px) {
+  .agence-ui .agence-close a {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agence-ui *,
+  .agence-ui *::before,
+  .agence-ui *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
