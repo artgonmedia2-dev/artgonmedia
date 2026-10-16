@@ -1,0 +1,160 @@
+/* The portfolio overview only; homepage and case-study pages retain their styles. */
+.realisations-ui :is(a, button):focus-visible {
+  outline: 3px solid var(--color-teal);
+  outline-offset: 4px;
+}
+
+.realisations-ui :is(h1, h2, h3) {
+  text-wrap: balance;
+}
+
+.realisations-ui p {
+  text-wrap: pretty;
+}
+
+.realisations-ui .portfolio-hero {
+  display: flex;
+  min-height: 21rem;
+  align-items: center;
+  overflow: hidden;
+  padding-block: 2.5rem;
+}
+
+.realisations-ui .portfolio-hero-visual {
+  position: absolute;
+  inset: 0 0 0 auto;
+  z-index: -1;
+  width: 72%;
+  pointer-events: none;
+}
+
+.realisations-ui .portfolio-hero-visual img {
+  object-position: right center;
+}
+
+.realisations-ui .portfolio-hero-visual::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  background: linear-gradient(90deg, var(--color-navy), rgb(30 39 97 / 85%) 15%, rgb(30 39 97 / 20%) 45%, transparent 75%);
+}
+
+.realisations-ui .portfolio-hero-copy {
+  max-width: 52%;
+}
+
+.realisations-ui .portfolio-hero h1 {
+  font-family: var(--font-syne), var(--font-inter), system-ui, sans-serif;
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+
+.realisations-ui .portfolio-hero p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgb(255 255 255 / 82%);
+}
+
+.realisations-ui .portfolio-gallery {
+  padding-block: 2rem 3.5rem;
+}
+
+.realisations-ui .portfolio-project {
+  box-shadow: 0 8px 28px rgb(30 39 97 / 4%);
+}
+
+.realisations-ui .portfolio-screenshot-stage .project-preview {
+  overflow: hidden;
+  border: 1px solid rgb(30 39 97 / 10%);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px rgb(30 39 97 / 8%);
+}
+
+.realisations-ui .portfolio-screenshot-stage .project-preview > .flex {
+  height: 2rem;
+  background-color: white;
+}
+
+.realisations-ui .portfolio-project h2 {
+  font-size: clamp(1.75rem, 2.6vw, 2.25rem);
+  line-height: 1.2;
+}
+
+.realisations-ui .portfolio-project-details > p:not(.text-sm) {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+}
+
+.realisations-ui .portfolio-project-details > .mt-6:has(> h3) {
+  padding-top: 1.25rem;
+  border-top: 1px solid rgb(30 39 97 / 10%);
+}
+
+.realisations-ui .portfolio-project-details h3 {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  color: var(--color-navy);
+}
+
+.realisations-ui .portfolio-project-details li {
+  line-height: 1.7;
+}
+
+.realisations-ui .portfolio-case-link {
+  line-height: 1.5;
+  text-align: center;
+  transition-duration: 180ms;
+}
+
+@media (min-width: 1024px) {
+  .realisations-ui .portfolio-hero {
+    padding-block: 2.5rem;
+  }
+
+  .realisations-ui .portfolio-gallery {
+    padding-block: 2rem 6rem;
+  }
+
+  .realisations-ui .portfolio-project {
+    padding: 2.5rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .realisations-ui .portfolio-case-link {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .realisations-ui *,
+  .realisations-ui *::before,
+  .realisations-ui *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .realisations-ui .portfolio-hero {
+    min-height: 15rem;
+    padding-block: 2.5rem;
+  }
+
+  .realisations-ui .portfolio-hero-visual {
+    width: 100%;
+    opacity: 0.4;
+  }
+
+  .realisations-ui .portfolio-hero-visual::after {
+    background: linear-gradient(90deg, var(--color-navy), rgb(30 39 97 / 70%));
+  }
+
+  .realisations-ui .portfolio-hero-copy {
+    max-width: 34rem;
+  }
+}

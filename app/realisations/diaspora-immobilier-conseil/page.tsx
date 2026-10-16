@@ -1,3 +1,5 @@
+import '@/components/sections/case-study.css'
+import CaseStudyPreview from '@/components/ui/CaseStudyPreview'
 import type { Metadata } from 'next'
 import { generateMetadata } from '@/lib/seo'
 import { breadcrumbSchema, articleSchema } from '@/lib/schema'
@@ -19,7 +21,7 @@ export default function DiasporaImmobilierPage() {
   ]
 
   return (
-    <>
+    <div className="case-study-ui">
       <JsonLd
         data={[
           breadcrumbSchema(breadcrumbs),
@@ -32,28 +34,26 @@ export default function DiasporaImmobilierPage() {
         ]}
       />
 
-      <section className="bg-gradient-to-br from-brand-navy to-brand-violet py-24 text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <nav aria-label="Fil d'Ariane" className="mb-6">
-            <ol className="flex flex-wrap items-center gap-2 text-sm text-white/60">
-              <li><a href="/" className="hover:text-white">Accueil</a></li>
-              <li aria-hidden="true">/</li>
-              <li><a href="/realisations" className="hover:text-white">Réalisations</a></li>
-              <li aria-hidden="true">/</li>
-              <li className="text-white">Diaspora Immobilier</li>
-            </ol>
-          </nav>
-          <span className="inline-block rounded-full bg-white/15 px-4 py-1.5 text-sm font-medium">
+      <header className="case-study-header bg-white">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <span className="inline-block rounded-full border border-brand-teal/10 bg-brand-teal/5 px-3 py-1 text-xs font-medium text-brand-teal">
             Application mobile Flutter · 2024
           </span>
-          <h1 className="mt-4 text-4xl font-extrabold sm:text-5xl">Diaspora Immobilier Conseil</h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/80">
+          <h1 className="mt-3 font-bold text-brand-navy">Diaspora Immobilier Conseil</h1>
+          <p className="mt-3 text-base leading-relaxed text-gray-600">
             Application mobile iOS & Android permettant à la diaspora marocaine en Europe de gérer et investir dans l&apos;immobilier marocain depuis leur smartphone.
           </p>
         </div>
-      </section>
+      </header>
 
-      <section className="py-16 bg-violet-50">
+      <CaseStudyPreview slug="diaspora-immobilier-conseil">
+            <h2 className="text-2xl font-bold text-brand-navy">Le contexte</h2>
+            <p className="mt-4 text-gray-600 leading-relaxed">
+              Diaspora Immobilier Conseil est un cabinet belge spécialisé dans l&apos;accompagnement de la diaspora marocaine pour l&apos;investissement immobilier au Maroc. Leurs clients, résidant en Belgique, France et Pays-Bas, avaient besoin d&apos;un outil mobile pour suivre leurs biens, documents et rendez-vous à distance.
+            </p>
+      </CaseStudyPreview>
+
+      <section className="case-study-results bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
             {[
@@ -70,14 +70,9 @@ export default function DiasporaImmobilierPage() {
         </div>
       </section>
 
-      <article className="py-24 bg-white">
+      <article className="case-study-article bg-white">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 space-y-8">
-          <div>
-            <h2 className="text-2xl font-bold text-brand-navy">Le contexte</h2>
-            <p className="mt-4 text-gray-600 leading-relaxed">
-              Diaspora Immobilier Conseil est un cabinet belge spécialisé dans l&apos;accompagnement de la diaspora marocaine pour l&apos;investissement immobilier au Maroc. Leurs clients, résidant en Belgique, France et Pays-Bas, avaient besoin d&apos;un outil mobile pour suivre leurs biens, documents et rendez-vous à distance.
-            </p>
-          </div>
+          
 
           <div>
             <h2 className="text-2xl font-bold text-brand-navy">Le défi</h2>
@@ -108,7 +103,7 @@ export default function DiasporaImmobilierPage() {
             </p>
           </div>
 
-          <div className="rounded-2xl bg-brand-violet p-8 text-center text-white">
+          <div className="case-study-contact rounded-2xl bg-brand-navy p-6 text-center text-white sm:p-8">
             <h3 className="text-xl font-bold">Vous avez un projet d&apos;application mobile ?</h3>
             <p className="mt-2 text-white/80 text-sm">Discutons de votre idée sur WhatsApp.</p>
             <a
@@ -122,6 +117,6 @@ export default function DiasporaImmobilierPage() {
           </div>
         </div>
       </article>
-    </>
+    </div>
   )
 }
