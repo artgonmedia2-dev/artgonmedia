@@ -1,0 +1,108 @@
+.maroc-ui { --maroc-muted: #5c6477; --maroc-sand: #f3f0e8; color: var(--color-navy); }
+.maroc-ui :is(a, summary):focus-visible { outline: 3px solid var(--color-teal); outline-offset: 5px; }
+.maroc-ui :is(h1, h2, h3) { text-wrap: balance; }
+.maroc-ui p { text-wrap: pretty; }
+.maroc-ui .maroc-container { width: 100%; max-width: 78rem; padding-inline: 1.5rem; margin-inline: auto; }
+.maroc-ui .maroc-section { padding-block: 5rem; }
+.maroc-ui .maroc-eyebrow { display: inline-flex; align-items: center; gap: .5rem; font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--color-teal); }
+.maroc-ui .maroc-eyebrow-light { color: #92e2d9; }
+.maroc-ui h2 { margin-top: .85rem; font-size: clamp(1.8rem, 3vw, 2.65rem); line-height: 1.2; letter-spacing: -.04em; }
+.maroc-ui .maroc-hero-visual { position: absolute; inset: 0 0 0 auto; width: 57%; z-index: -1; }
+.maroc-ui .maroc-hero-visual img { object-position: right center; }
+.maroc-ui .maroc-hero-visual::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, var(--color-navy), rgb(30 39 97 / 80%) 15%, rgb(30 39 97 / 5%) 80%); }
+.maroc-ui .maroc-hero-copy { max-width: 39rem; }
+.maroc-ui .maroc-hero h1 { margin-top: .75rem; }
+.maroc-ui .maroc-hero-copy > p { max-width: 33rem; margin-top: 1rem; font-size: 1rem; line-height: 1.75; color: rgb(255 255 255 / 85%); }
+.maroc-ui .maroc-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+.maroc-ui .maroc-button { min-height: 3rem; display: inline-flex; align-items: center; justify-content: center; gap: .65rem; padding: .8rem 1.1rem; border: 1px solid transparent; border-radius: .75rem; font-size: .875rem; font-weight: 650; text-align: center; transition: background-color 180ms, border-color 180ms; }
+.maroc-ui .maroc-button-outline { border-color: rgb(255 255 255 / 40%); color: white; background: rgb(30 39 97 / 30%); }
+.maroc-ui .maroc-button-outline:hover { border-color: white; background: rgb(255 255 255 / 10%); }
+.maroc-ui .maroc-trust { border-bottom: 1px solid var(--border-subtle); background: #f8fafb; }
+.maroc-ui .maroc-trust-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding-block: 1.5rem; gap: 1.5rem; }
+.maroc-ui .maroc-trust-item { display: flex; gap: .85rem; align-items: center; }
+.maroc-ui .maroc-trust-item > svg { flex-shrink: 0; color: var(--color-teal); }
+.maroc-ui .maroc-trust-item strong { display: block; font-size: .875rem; font-weight: 650; }
+.maroc-ui .maroc-trust-item div > span { display: block; font-size: .75rem; color: var(--maroc-muted); margin-top: .25rem; }
+.maroc-ui .maroc-section-heading { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 2.5rem; }
+.maroc-ui .maroc-section-heading > p { max-width: 26rem; font-size: 1rem; line-height: 1.8; color: var(--maroc-muted); }
+.maroc-ui .maroc-services-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+.maroc-ui .maroc-service-card { display: flex; flex-direction: column; padding: 1.75rem; border: 1px solid var(--border-subtle); border-radius: 1rem; transition: border-color 180ms, box-shadow 180ms; }
+.maroc-ui .maroc-service-card:hover { border-color: var(--color-teal); box-shadow: var(--shadow-card); }
+.maroc-ui .maroc-service-icon { display: inline-flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; border-radius: .8rem; background: #eaf6f5; color: var(--color-teal); }
+.maroc-ui .maroc-service-card h3 { margin-top: 1.5rem; font-size: 1.2rem; }
+.maroc-ui .maroc-service-card > p { margin-top: .75rem; font-size: .9375rem; line-height: 1.8; color: var(--maroc-muted); flex: 1; }
+.maroc-ui .maroc-service-bottom { display: flex; align-items: end; justify-content: space-between; flex-wrap: wrap; gap: .75rem; border-top: 1px solid var(--border-subtle); padding-top: 1.25rem; margin-top: 1.5rem; }
+.maroc-ui .maroc-service-bottom div > span { display: block; color: var(--maroc-muted); font-size: .7rem; }
+.maroc-ui .maroc-service-bottom strong { display: block; margin-top: .25rem; font-size: 1.35rem; }
+.maroc-ui .maroc-service-bottom small { font-size: .7rem; font-weight: 500; color: var(--maroc-muted); }
+.maroc-ui .maroc-service-link { color: var(--color-teal); font-size: .8125rem; font-weight: 650; }
+.maroc-ui .maroc-price-note { margin-top: 1.75rem; text-align: center; font-size: .875rem; line-height: 1.8; color: var(--maroc-muted); }
+.maroc-ui .maroc-price-note a { color: var(--color-teal); text-decoration: underline; text-underline-offset: 4px; }
+.maroc-ui .maroc-text-link { display: inline-flex; align-items: center; min-height: 2.75rem; color: var(--color-teal); font-size: .875rem; font-weight: 650; }
+.maroc-ui .maroc-text-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+.maroc-ui .maroc-projects { background: var(--maroc-sand); }
+.maroc-ui .maroc-project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+.maroc-ui .maroc-project-card { overflow: hidden; border: 1px solid var(--border-subtle); border-radius: 1rem; background: white; display: flex; flex-direction: column; transition: box-shadow 180ms; }
+.maroc-ui .maroc-project-card:hover { box-shadow: var(--shadow-raised); }
+.maroc-ui .maroc-project-image { position: relative; aspect-ratio: 16 / 11; overflow: hidden; background: #e7eaef; border-bottom: 1px solid var(--border-subtle); }
+.maroc-ui .maroc-project-copy { display: flex; flex-direction: column; flex: 1; padding: 1.5rem; }
+.maroc-ui .maroc-project-copy > span:first-child { font-size: .75rem; color: var(--color-teal); }
+.maroc-ui .maroc-project-copy h3 { margin-top: .7rem; font-size: 1.2rem; line-height: 1.4; }
+.maroc-ui .maroc-project-copy p { flex: 1; margin-top: .75rem; font-size: .875rem; line-height: 1.8; color: var(--maroc-muted); }
+.maroc-ui .maroc-project-link { margin-top: 1.5rem; font-weight: 650; font-size: .8125rem; color: var(--color-teal); }
+.maroc-ui .maroc-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; counter-reset: steps; }
+.maroc-ui .maroc-steps li { position: relative; border-top: 1px solid var(--border-subtle); padding-top: 1.5rem; }
+.maroc-ui .maroc-step-number { font-family: var(--font-syne), sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--color-teal); }
+.maroc-ui .maroc-steps h3 { font-size: 1.0625rem; line-height: 1.5; margin-top: 1rem; }
+.maroc-ui .maroc-steps p { margin-top: .65rem; color: var(--maroc-muted); font-size: .875rem; line-height: 1.8; }
+.maroc-ui .maroc-faq { background: #f7f9fa; }
+.maroc-ui .maroc-faq-layout { display: grid; grid-template-columns: 1fr 1.6fr; gap: 5rem; }
+.maroc-ui .maroc-faq-layout > div > p { margin-top: 1.5rem; color: var(--maroc-muted); line-height: 1.8; }
+.maroc-ui .maroc-faq-list details { border-bottom: 1px solid var(--border-subtle); }
+.maroc-ui .maroc-faq-list details:first-child { border-top: 1px solid var(--border-subtle); }
+.maroc-ui .maroc-faq-list summary { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; padding: 1.5rem .25rem; font-size: 1rem; font-weight: 600; line-height: 1.6; cursor: pointer; list-style: none; }
+.maroc-ui .maroc-faq-list summary::-webkit-details-marker { display: none; }
+.maroc-ui .maroc-faq-toggle { flex-shrink: 0; width: 1rem; height: 1rem; position: relative; color: var(--color-teal); }
+.maroc-ui .maroc-faq-toggle::before, .maroc-ui .maroc-faq-toggle::after { content: ''; position: absolute; left: 0; top: 50%; width: 1rem; height: 2px; background: currentColor; }
+.maroc-ui .maroc-faq-toggle::after { transform: rotate(90deg); }
+.maroc-ui details[open] .maroc-faq-toggle::after { transform: rotate(0); }
+.maroc-ui .maroc-faq-list details > p { padding: 0 2.5rem 1.5rem .25rem; font-size: .9375rem; line-height: 1.85; color: var(--maroc-muted); }
+.maroc-ui .maroc-contact-card { display: flex; justify-content: space-between; align-items: center; gap: 3rem; padding: 3rem; border-radius: 1.25rem; background: var(--color-navy); color: white; }
+.maroc-ui .maroc-contact-card h2 { max-width: 34rem; }
+.maroc-ui .maroc-contact-card p { max-width: 34rem; margin-top: 1rem; font-size: .9375rem; line-height: 1.8; color: rgb(255 255 255 / 80%); }
+.maroc-ui .maroc-contact-actions { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: .75rem; }
+.maroc-ui .maroc-contact-actions > a:last-child { display: inline-flex; align-items: center; min-height: 2.75rem; font-size: .875rem; color: rgb(255 255 255 / 85%); }
+.maroc-ui .maroc-office { display: flex; justify-content: center; align-items: center; gap: .5rem; margin-top: 1.5rem; text-align: center; color: var(--maroc-muted); font-size: .75rem; line-height: 1.8; }
+.maroc-ui .maroc-office svg { flex-shrink: 0; }
+@media (max-width: 1023px) {
+  .maroc-ui .maroc-trust-grid, .maroc-ui .maroc-services-grid, .maroc-ui .maroc-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .maroc-ui .maroc-section { padding-block: 3.5rem; }
+  .maroc-ui .maroc-section-heading { align-items: start; flex-direction: column; gap: 1.25rem; }
+  .maroc-ui .maroc-section-heading > p { max-width: 38rem; }
+  .maroc-ui .maroc-project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .maroc-ui .maroc-faq-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .maroc-ui .maroc-contact-card { padding: 2rem; flex-direction: column; align-items: start; gap: 1.5rem; }
+  .maroc-ui .maroc-contact-actions { align-items: start; }
+}
+@media (max-width: 639px) {
+  .maroc-ui .maroc-container { padding-inline: 1rem; }
+  .maroc-ui .maroc-services-grid, .maroc-ui .maroc-project-grid { grid-template-columns: 1fr; }
+  .maroc-ui .maroc-service-card { padding: 1.5rem; }
+  .maroc-ui .maroc-trust-grid { gap: 1.5rem .75rem; }
+  .maroc-ui .maroc-trust-item { gap: .5rem; align-items: start; }
+  .maroc-ui .maroc-trust-item strong { font-size: .8125rem; }
+  .maroc-ui .maroc-trust-item div > span { font-size: .6875rem; line-height: 1.6; }
+  .maroc-ui .maroc-hero-copy > p { font-size: .9375rem; }
+  .maroc-ui .maroc-actions { flex-direction: column; }
+  .maroc-ui .maroc-steps { grid-template-columns: 1fr; gap: 1.5rem; }
+  .maroc-ui .maroc-steps li { padding-left: 3.5rem; }
+  .maroc-ui .maroc-step-number { position: absolute; left: 0; top: 1.25rem; font-size: 1.75rem; }
+  .maroc-ui .maroc-steps h3 { margin-top: 0; }
+  .maroc-ui .maroc-contact-card { padding: 1.75rem 1.25rem; }
+  .maroc-ui .maroc-contact-actions, .maroc-ui .maroc-contact-actions .maroc-button { width: 100%; }
+  .maroc-ui .maroc-contact-actions { align-items: center; }
+  .maroc-ui .maroc-contact-section { padding-bottom: 6rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .maroc-ui *, .maroc-ui *::before, .maroc-ui *::after { transition-duration: .01ms !important; }
+}
