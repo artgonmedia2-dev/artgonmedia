@@ -63,7 +63,7 @@ const PLANS = [
 
 export default function Pricing() {
   return (
-    <section className="py-24 bg-white" id="tarifs">
+    <section className="bg-white py-24" id="tarifs">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle
           eyebrow="Nos tarifs"
@@ -71,12 +71,12 @@ export default function Pricing() {
           subtitle="Tous les prix sont en dirhams marocains (MAD), TVA incluse. Devis personnalisé gratuit sur demande."
         />
 
-        <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
+        <div className="mt-16 grid grid-cols-1 items-stretch gap-8 lg:grid-cols-3">
           {PLANS.map((plan) => (
             <div
               key={plan.name}
-              className={`relative rounded-2xl border-2 bg-white p-8 shadow-sm ${plan.color} ${
-                plan.highlight ? 'ring-2 ring-brand-teal ring-offset-2' : ''
+              className={`relative flex flex-col rounded-2xl border-2 p-8 shadow-sm ${
+                plan.highlight ? 'border-brand-navy bg-brand-navy text-white' : `bg-white ${plan.color}`
               }`}
             >
               {plan.highlight && (
@@ -87,19 +87,19 @@ export default function Pricing() {
                 </div>
               )}
               <div>
-                <h3 className="text-xl font-bold text-brand-navy">{plan.name}</h3>
+                <h3 className={`text-xl font-bold ${plan.highlight ? 'text-white' : 'text-brand-navy'}`}>{plan.name}</h3>
                 <div className="mt-4 flex items-baseline gap-1">
-                  <span className="text-4xl font-extrabold text-brand-navy">{plan.price}</span>
-                  <span className="text-lg text-gray-500">{plan.currency}</span>
-                  <span className="text-sm text-gray-400">/{plan.period}</span>
+                  <span className={`text-4xl font-extrabold ${plan.highlight ? 'text-white' : 'text-brand-navy'}`}>{plan.price}</span>
+                  <span className={`text-lg ${plan.highlight ? 'text-white/70' : 'text-gray-500'}`}>{plan.currency}</span>
+                  <span className={`text-sm ${plan.highlight ? 'text-white/50' : 'text-gray-400'}`}>/{plan.period}</span>
                 </div>
-                <p className="mt-3 text-sm text-gray-600">{plan.description}</p>
+                <p className={`mt-3 text-sm ${plan.highlight ? 'text-white/75' : 'text-gray-600'}`}>{plan.description}</p>
               </div>
 
-              <ul className="mt-8 space-y-3">
+              <ul className="mt-8 flex-1 space-y-3">
                 {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3 text-sm text-gray-700">
-                    <svg className="mt-0.5 h-5 w-5 shrink-0 text-brand-teal" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">
+                  <li key={feature} className={`flex items-start gap-3 text-sm ${plan.highlight ? 'text-white/90' : 'text-gray-700'}`}>
+                    <svg className={`mt-0.5 h-5 w-5 shrink-0 ${plan.highlight ? 'text-brand-teal-light' : 'text-brand-teal'}`} fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                     </svg>
                     {feature}
@@ -111,9 +111,9 @@ export default function Pricing() {
                 href={WHATSAPP_CTA(`Bonjour, je suis intéressé par le plan ${plan.name} à ${plan.price} MAD.`)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`mt-8 block w-full rounded-xl py-3 text-center font-semibold transition-colors ${
+                className={`mt-8 block min-h-12 w-full rounded-xl py-3 text-center font-semibold transition-colors ${
                   plan.highlight
-                    ? 'bg-brand-teal text-white hover:bg-teal-700'
+                    ? 'bg-white text-brand-navy hover:bg-sand'
                     : 'border-2 border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white'
                 }`}
               >

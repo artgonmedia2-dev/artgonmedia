@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import './home.css'
 import Hero from '@/components/sections/Hero'
 import Services from '@/components/sections/Services'
 import WhyUs from '@/components/sections/WhyUs'
@@ -41,15 +42,15 @@ const HOME_FAQ = [
 
 export default function HomePage() {
   return (
-    <>
+    <div className="home-ui">
       <Hero />
       <Services />
       <WhyUs />
       <Portfolio />
       <Pricing />
       <Partners />
-      <FAQ items={HOME_FAQ} title="Questions fréquentes sur Artgon MEDIA" />
+      <FAQ items={HOME_FAQ} title="Questions fréquentes sur Artgon MEDIA" className="bg-sand" />
       <ContactForm />
-    </>
+    </div>
   )
 }

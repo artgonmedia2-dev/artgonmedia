@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Syne } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -8,7 +8,13 @@ import JsonLd from '@/components/seo/JsonLd'
 import { localBusinessSchema } from '@/lib/schema'
 import { SITE_URL, SITE_NAME, NAP, META_DEFAULTS } from '@/lib/constants'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
+const syne = Syne({
+  subsets: ['latin'],
+  variable: '--font-syne',
+  display: 'swap',
+  weight: ['600', '700', '800'],
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -58,7 +64,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={inter.variable}>
+    <html lang="fr" className={`${inter.variable} ${syne.variable}`}>
       <head>
         <JsonLd data={localBusinessSchema()} />
         <link rel="icon" href="/favicon.ico" sizes="any" />

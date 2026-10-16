@@ -1,13 +1,6 @@
 import SectionTitle from '@/components/ui/SectionTitle'
 
-const PARTNERS = [
-  { name: 'Next.js', logo: '⬡' },
-  { name: 'Vercel', logo: '▲' },
-  { name: 'Flutter', logo: '⛵' },
-  { name: 'Laravel', logo: '🔺' },
-  { name: 'Sanity', logo: '✦' },
-  { name: 'Cloudflare', logo: '🔶' },
-]
+const PARTNERS = ['Next.js', 'Vercel', 'Flutter', 'Laravel', 'Sanity', 'Cloudflare']
 
 const TESTIMONIALS = [
   {
@@ -38,20 +31,22 @@ const TESTIMONIALS = [
 
 export default function Partners() {
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="bg-white py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-wider text-gray-400">
             Technologies maîtrisées
           </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-8">
-            {PARTNERS.map((p) => (
-              <div key={p.name} className="flex items-center gap-2 text-gray-400">
-                <span className="text-2xl" aria-hidden="true">{p.logo}</span>
-                <span className="font-semibold">{p.name}</span>
-              </div>
+          <ul className="mt-6 flex flex-wrap items-center justify-center gap-3">
+            {PARTNERS.map((name) => (
+              <li
+                key={name}
+                className="rounded-full bg-sand px-4 py-2 text-sm font-semibold text-brand-navy"
+              >
+                {name}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
 
         <div className="mt-24">
@@ -64,7 +59,7 @@ export default function Partners() {
           <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
             {TESTIMONIALS.map((t) => (
               <blockquote key={t.author} className="rounded-2xl bg-white p-8 shadow-sm">
-                <div className="flex gap-1 text-yellow-400" aria-label="5 étoiles sur 5">
+                <div className="flex gap-1 text-brand-coral" aria-label="5 étoiles sur 5">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <svg key={i} className="h-4 w-4 fill-current" viewBox="0 0 20 20" aria-hidden="true">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import SectionTitle from '@/components/ui/SectionTitle'
 import Card from '@/components/ui/Card'
+import { ServiceIcon } from '@/components/ui/Icons'
 import { services } from '@/lib/services'
 
 const SERVICE_COLORS: Record<string, string> = {
@@ -14,7 +15,7 @@ const SERVICE_COLORS: Record<string, string> = {
 
 export default function Services() {
   return (
-    <section className="bg-gray-50 py-24" id="services">
+    <section className="bg-sand py-24" id="services">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle
           eyebrow="Nos services"
@@ -30,9 +31,9 @@ export default function Services() {
                 <Link href={`/services/${service.slug}`} className="block h-full">
                   <div
                     className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl text-2xl"
-                    style={{ backgroundColor: `${color}18` }}
+                    style={{ backgroundColor: `${color}18`, color }}
                   >
-                    {service.icon}
+                    <ServiceIcon slug={service.slug} className="h-6 w-6" />
                   </div>
                   <h3 className="text-xl font-bold text-brand-navy group-hover:text-brand-teal transition-colors">
                     {service.navLabel}

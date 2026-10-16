@@ -15,6 +15,7 @@ interface FAQProps {
   title?: string
   subtitle?: string
   includeJsonLd?: boolean
+  className?: string
 }
 
 function FAQAccordion({ item, open, onToggle }: { item: FAQItem; open: boolean; onToggle: () => void }) {
@@ -51,11 +52,12 @@ export default function FAQ({
   title = 'Questions fréquentes',
   subtitle,
   includeJsonLd = true,
+  className = 'bg-white',
 }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <section className="py-24 bg-white" id="faq">
+    <section className={`py-24 ${className}`} id="faq">
       {includeJsonLd && <JsonLd data={faqSchema(items)} />}
 
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">

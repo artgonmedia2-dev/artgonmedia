@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        sand: '#F3F0E8',
         teal: {
           DEFAULT: '#028090',
           light: '#45C4BB',
@@ -32,6 +33,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-syne)', 'var(--font-inter)', 'system-ui', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out',

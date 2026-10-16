@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { NAP, WHATSAPP_CTA } from '@/lib/constants'
+import { Icon } from '@/components/ui/Icons'
 
 export default function ContactForm() {
   const [form, setForm] = useState({ name: '', phone: '', email: '', service: '', message: '' })
@@ -26,45 +27,51 @@ ${form.message}`
   }
 
   return (
-    <section className="py-24 bg-gray-50" id="contact">
+    <section className="bg-white py-24" id="contact">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
-          <div>
-            <span className="inline-block rounded-full bg-teal-50 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-brand-teal">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+          <div className="rounded-3xl bg-brand-navy p-8 text-white sm:p-10">
+            <span className="inline-block text-xs font-semibold uppercase tracking-[0.22em] text-brand-teal-light">
               Contact
             </span>
-            <h2 className="mt-3 text-3xl font-bold text-brand-navy">
+            <h2 className="mt-3 text-3xl font-bold text-white">
               Parlons de votre projet
             </h2>
-            <p className="mt-4 text-gray-600 leading-relaxed">
+            <p className="mt-4 leading-relaxed text-white/75">
               Décrivez-nous votre projet et nous vous recontactons sous 2h pour un premier échange gratuit et sans engagement.
             </p>
 
-            <address className="mt-10 not-italic space-y-4">
+            <address className="mt-10 space-y-5 not-italic">
               <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-xl">📍</div>
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-brand-teal-light">
+                  <Icon name="pin" className="h-5 w-5" />
+                </div>
                 <div>
-                  <div className="font-semibold text-brand-navy">Adresse</div>
-                  <div className="text-sm text-gray-600">{NAP.streetAddress}</div>
-                  <div className="text-sm text-gray-600">{NAP.postalCode} {NAP.addressLocality}</div>
+                  <div className="font-semibold">Adresse</div>
+                  <div className="text-sm text-white/70">{NAP.streetAddress}</div>
+                  <div className="text-sm text-white/70">{NAP.postalCode} {NAP.addressLocality}</div>
                 </div>
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-xl">📞</div>
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-brand-teal-light">
+                  <Icon name="phone" className="h-5 w-5" />
+                </div>
                 <div>
-                  <div className="font-semibold text-brand-navy">Téléphone & WhatsApp</div>
-                  <a href={`tel:${NAP.telephone}`} className="text-sm text-brand-teal hover:underline">
+                  <div className="font-semibold">Téléphone & WhatsApp</div>
+                  <a href={`tel:${NAP.telephone}`} className="text-sm text-brand-teal-light hover:underline">
                     {NAP.telephoneDisplay}
                   </a>
                 </div>
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-xl">✉️</div>
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-brand-teal-light">
+                  <Icon name="mail" className="h-5 w-5" />
+                </div>
                 <div>
-                  <div className="font-semibold text-brand-navy">Email</div>
-                  <a href={`mailto:${NAP.email}`} className="text-sm text-brand-teal hover:underline">
+                  <div className="font-semibold">Email</div>
+                  <a href={`mailto:${NAP.email}`} className="text-sm text-brand-teal-light hover:underline">
                     {NAP.email}
                   </a>
                 </div>
@@ -72,7 +79,7 @@ ${form.message}`
             </address>
           </div>
 
-          <form onSubmit={handleSubmit} className="rounded-2xl bg-white p-8 shadow-sm">
+          <form onSubmit={handleSubmit} className="rounded-3xl border border-gray-100 bg-sand p-8 shadow-sm">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">

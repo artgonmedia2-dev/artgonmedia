@@ -1,9 +1,10 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { NAP, WHATSAPP_CTA } from '@/lib/constants'
+import { usePathname } from 'next/navigation'
+import { WHATSAPP_CTA } from '@/lib/constants'
 
 const NAV_LINKS = [
   { label: 'Accueil', href: '/' },
@@ -15,8 +16,18 @@ const NAV_LINKS = [
   { label: 'Contact', href: '/contact' },
 ]
 
+function isActive(pathname: string, href: string) {
+  if (href === '/') return pathname === '/'
+  return pathname === href || pathname.startsWith(`${href}/`)
+}
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const pathname = usePathname()
+
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [pathname])
 
   return (
     <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/95 backdrop-blur-sm">
@@ -33,15 +44,21 @@ export default function Header() {
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Navigation principale">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-gray-700 transition-colors hover:text-brand-teal"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const active = isActive(pathname, link.href)
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={active ? 'page' : undefined}
+                className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                  active ? 'bg-teal-50 text-brand-teal' : 'text-gray-700 hover:text-brand-teal'
+                }`}
+              >
+                {link.label}
+              </Link>
+            )
+          })}
         </nav>
 
         <a
@@ -63,8 +80,9 @@ export default function Header() {
         </a>
 
         <button
+          type="button"
           onClick={() => setMenuOpen(!menuOpen)}
-          className="rounded-md p-2 text-gray-700 hover:bg-gray-100 lg:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-md text-gray-700 hover:bg-gray-100 lg:hidden"
           aria-expanded={menuOpen}
           aria-label="Menu de navigation"
         >
@@ -81,21 +99,27 @@ export default function Header() {
       {menuOpen && (
         <div className="border-t border-gray-100 bg-white px-4 pb-4 lg:hidden">
           <nav className="flex flex-col gap-1 pt-2" aria-label="Navigation mobile">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="rounded-lg px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-brand-teal"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const active = isActive(pathname, link.href)
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={active ? 'page' : undefined}
+                  onClick={() => setMenuOpen(false)}
+                  className={`rounded-lg px-4 py-3 text-base font-medium ${
+                    active ? 'bg-teal-50 text-brand-teal' : 'text-gray-700 hover:bg-gray-50 hover:text-brand-teal'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
+            })}
             <a
               href={WHATSAPP_CTA()}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 rounded-lg bg-brand-teal px-4 py-3 text-center text-sm font-semibold text-white"
+              className="mt-2 inline-flex min-h-12 items-center justify-center rounded-lg bg-brand-teal px-4 py-3 text-center text-base font-semibold text-white"
             >
               Devis gratuit sur WhatsApp
             </a>

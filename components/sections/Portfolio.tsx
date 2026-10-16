@@ -1,5 +1,9 @@
 import Link from 'next/link'
 import SectionTitle from '@/components/ui/SectionTitle'
+import ProjectScreenshot from '@/components/ui/ProjectScreenshot'
+import ProjectCardDetails from '@/components/ui/ProjectCardDetails'
+import { projectWebsites } from '@/lib/project-websites'
+import { projectCaseStudies } from '@/lib/project-case-studies'
 
 const PROJECTS = [
   {
@@ -24,7 +28,7 @@ const PROJECTS = [
 
 export default function Portfolio() {
   return (
-    <section className="bg-gray-50 py-24" id="realisations">
+    <section className="bg-sand py-24" id="realisations">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle
           eyebrow="Réalisations"
@@ -33,44 +37,34 @@ export default function Portfolio() {
         />
 
         <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2">
-          {PROJECTS.map((project) => (
-            <article key={project.slug} className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
-              <div
-                className="h-3 w-full"
-                style={{ backgroundColor: project.color }}
-                aria-hidden="true"
-              />
+          {projectWebsites.slice(0, 2).map((website) => {
+            const project = PROJECTS.find((item) => item.slug === website.slug)
+            const study = projectCaseStudies.find((item) => item.slug === website.slug)
+            return (
+            <article key={website.slug} className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
+              <ProjectScreenshot project={website} />
               <div className="p-8">
                 <span className="inline-block rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">
-                  {project.category}
+                  {project?.category ?? website.category}
                 </span>
                 <h3 className="mt-3 text-2xl font-bold text-brand-navy group-hover:text-brand-teal transition-colors">
-                  {project.title}
+                  {website.title}
                 </h3>
-                <p className="mt-3 leading-relaxed text-gray-600">{project.description}</p>
-                <div className="mt-5 flex flex-wrap gap-2">
+                {study ? <ProjectCardDetails project={study} /> : <p className="mt-3 leading-relaxed text-gray-600">{project?.description}</p>}
+                {project && <div className="mt-5 flex flex-wrap gap-2">
                   {project.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="rounded-full px-3 py-1 text-xs font-semibold text-white"
-                      style={{ backgroundColor: project.color }}
-                    >
+                    <span key={t} className="rounded-full bg-sand px-3 py-1 text-xs font-semibold text-brand-navy">
                       {t}
                     </span>
                   ))}
-                </div>
-                <Link
-                  href={`/realisations/${project.slug}`}
-                  className="mt-6 inline-flex items-center gap-2 font-semibold text-brand-teal hover:underline"
-                >
-                  Voir l&apos;étude de cas
-                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
+                </div>}
+                <Link href={`/realisations/${website.slug}`} className="mt-6 inline-flex items-center gap-2 font-semibold text-brand-teal hover:underline">
+                  Lire l&apos;&#233;tude de cas compl&#232;te <span aria-hidden="true">&#8594;</span>
                 </Link>
               </div>
             </article>
-          ))}
+            )
+          })}
         </div>
 
         <div className="mt-12 text-center">
