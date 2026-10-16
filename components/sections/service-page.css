@@ -1,0 +1,227 @@
+/* Shared presentation for the six existing service detail routes. */
+.service-detail-ui :is(a, button):focus-visible {
+  outline: 3px solid var(--color-teal-light);
+  outline-offset: 4px;
+}
+
+.service-detail-ui :is(h1, h2, h3) {
+  text-wrap: balance;
+}
+
+.service-detail-ui p {
+  text-wrap: pretty;
+}
+
+.service-detail-ui > section {
+  padding-block: 3.5rem;
+}
+
+.service-detail-ui .detail-hero nav {
+  margin-bottom: 2.5rem;
+}
+
+.service-detail-ui .detail-hero h1 {
+  max-width: 16ch;
+  font-family: var(--font-syne), var(--font-inter), system-ui, sans-serif;
+  font-size: clamp(2.25rem, 4.3vw, 4rem);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  overflow-wrap: break-word;
+}
+
+.service-detail-ui .detail-hero-copy > p {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+.service-detail-ui .detail-hero-grid > * {
+  min-width: 0;
+}
+
+.service-detail-ui .detail-service-panel {
+  border-top: 3px solid var(--service-accent);
+  box-shadow: 0 16px 40px rgb(30 39 97 / 12%);
+}
+
+.service-detail-ui .detail-service-panel::before {
+  position: absolute;
+  inset: 0;
+  content: '';
+  pointer-events: none;
+  background: radial-gradient(ellipse at top right, rgb(69 196 187 / 15%), transparent 65%);
+}
+
+.service-detail-ui .detail-stack-heading {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+.service-detail-ui .detail-service-panel span {
+  overflow-wrap: anywhere;
+}
+
+.service-detail-ui .detail-intro > div {
+  max-width: 64rem;
+}
+
+.service-detail-ui .detail-intro-card {
+  border-left: 3px solid var(--service-accent);
+}
+
+.service-detail-ui .detail-intro-card p {
+  line-height: 1.85;
+}
+
+.service-detail-ui .detail-benefits {
+  padding-top: 0;
+}
+
+.service-detail-ui > section:not(.detail-hero) h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1.2;
+}
+
+.service-detail-ui .detail-benefits .grid {
+  gap: 1.5rem;
+}
+
+.service-detail-ui .detail-benefit-card {
+  box-shadow: 0 4px 16px rgb(30 39 97 / 3%);
+}
+
+.service-detail-ui .detail-benefit-number {
+  border: 1px solid rgb(30 39 97 / 10%);
+  background-color: #F3F0E8;
+}
+
+.service-detail-ui .detail-benefit-card h3 {
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+
+.service-detail-ui :is(.detail-benefit-card, .detail-process-step) p {
+  line-height: 1.8;
+}
+
+.service-detail-ui .detail-process-step:not(:last-child)::before {
+  position: absolute;
+  top: 3rem;
+  bottom: -2rem;
+  left: 1.5rem;
+  width: 1px;
+  content: '';
+  background-color: rgb(30 39 97 / 16%);
+}
+
+.service-detail-ui .detail-process-step > .pt-1 {
+  padding-bottom: 1rem;
+}
+
+.service-detail-ui .detail-process-number {
+  border: 1px solid rgb(255 255 255 / 15%);
+  box-shadow: 0 0 0 6px #F3F0E8;
+}
+
+.service-detail-ui .detail-case-card {
+  box-shadow: 0 6px 24px rgb(30 39 97 / 4%);
+}
+
+.service-detail-ui .detail-case-card > a {
+  min-height: 2.75rem;
+}
+
+.service-detail-ui #faq > div {
+  max-width: 56rem;
+}
+
+.service-detail-ui #faq .mt-12 {
+  overflow: hidden;
+  border: 1px solid rgb(30 39 97 / 12%);
+  border-radius: 1rem;
+  background-color: white;
+  padding-inline: 1.25rem;
+}
+
+.service-detail-ui #faq .border-b {
+  border-color: rgb(30 39 97 / 12%);
+}
+
+.service-detail-ui #faq .border-b:last-child {
+  border-bottom: 0;
+}
+
+.service-detail-ui #faq button {
+  min-height: 4.5rem;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 1.5rem;
+}
+
+.service-detail-ui #faq button:focus-visible {
+  outline-offset: -3px;
+}
+
+.service-detail-ui #faq button:hover span,
+.service-detail-ui #faq button[aria-expanded='true'] span {
+  color: var(--color-teal);
+}
+
+.service-detail-ui .detail-contact {
+  background-image: radial-gradient(ellipse at top right, rgb(2 128 144 / 25%), transparent 65%);
+}
+
+.service-detail-ui .detail-contact h2 {
+  color: white;
+}
+
+.service-detail-ui .detail-contact p {
+  line-height: 1.8;
+}
+
+.service-detail-ui .detail-related-card > div {
+  min-width: 0;
+}
+
+.service-detail-ui .detail-related-card {
+  transition-duration: 180ms;
+}
+
+@media (min-width: 640px) {
+  .service-detail-ui #faq .mt-12 {
+    padding-inline: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .service-detail-ui > section {
+    padding-block: 5rem;
+  }
+
+  .service-detail-ui .detail-hero-grid {
+    gap: 4rem;
+  }
+
+  .service-detail-ui .detail-benefits {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 639px) {
+  .service-detail-ui .detail-hero nav {
+    margin-bottom: 2rem;
+  }
+
+  .service-detail-ui .detail-contact a {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-detail-ui *,
+  .service-detail-ui *::before,
+  .service-detail-ui *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
